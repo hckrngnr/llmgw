@@ -1,7 +1,3 @@
-Here’s a `README.md` format for the provided API, structured to guide users in deploying and using the API from a GitHub page:
-
----
-
 # Large Language Model Gateway (LLMGW)
 
 ![License](https://img.shields.io/badge/license-MIT-green)
