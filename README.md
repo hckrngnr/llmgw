@@ -20,7 +20,7 @@ The **Large Language Model Gateway (LLMGW)** is a API server designed to interfa
 
 | Option          | Description                                | Default               |
 |-----------------|--------------------------------------------|-----------------------|
-| `--bindip`      | IP address to bind the server to           | `0.0.0.0`             |
+| `--bindip`      | IP address to bind the server to           | `127.0.0.1`             |
 | `--bindport`    | Port to bind the server to                 | `42069`                |
 | `--aihost`      | AI model server host                       | `10.0.0.1`      |
 | `--aihostport`  | AI model server port                       | `443`               |
