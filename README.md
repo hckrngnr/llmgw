@@ -5,7 +5,7 @@
 
 ## Overview
 
-The **Large Language Model Gateway (LLMGW)** is a Node.js-based API server designed to interface with AI models for chat completions. This API provides endpoints to interact with AI models, manage prompts, and retrieve completions, with built-in rate limiting, security, and clustering for scalability.
+The **Large Language Model Gateway (LLMGW)** is a API server designed to interface with AI models for chat completions. This API provides endpoints to interact with AI models, manage prompts, and retrieve completions, with built-in rate limiting, security, and clustering for scalability.
 
 ## Features
 
@@ -16,53 +16,14 @@ The **Large Language Model Gateway (LLMGW)** is a Node.js-based API server desig
 - **CLI Interaction**: Support for clearing the console and exiting the server via command line.
 - **Verbose Logging**: Optional detailed logging of requests and responses.
 
-## Prerequisites
-
-Ensure you have the following installed:
-- **Node.js** (v14.x or higher)
-- **npm** (v6.x or higher)
-
-## Installation
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/yourusername/llmgw.git
-   cd llmgw
-   ```
-
-2. **Install dependencies**:
-
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment** (optional):
-
-   You can configure IP and port bindings, AI model host, and other settings using command-line options (explained below).
-
-## Running the Server
-
-Run the server with default settings:
-
-```bash
-node server.js
-```
-
-You can configure the server using command-line options:
-
-```bash
-node server.js --bindip <ip> --bindport <port> --aihost <host> --aihostport <port> --verbose
-```
-
 ### Command-line options
 
 | Option          | Description                                | Default               |
 |-----------------|--------------------------------------------|-----------------------|
 | `--bindip`      | IP address to bind the server to           | `0.0.0.0`             |
-| `--bindport`    | Port to bind the server to                 | `3000`                |
-| `--aihost`      | AI model server host                       | `172.17.150.202`      |
-| `--aihostport`  | AI model server port                       | `42069`               |
+| `--bindport`    | Port to bind the server to                 | `42069`                |
+| `--aihost`      | AI model server host                       | `10.0.0.1`      |
+| `--aihostport`  | AI model server port                       | `443`               |
 | `--verbose`     | Enable verbose logging                     | `false`               |
 
 ### Example:
@@ -70,7 +31,7 @@ node server.js --bindip <ip> --bindport <port> --aihost <host> --aihostport <por
 To start the server on IP `127.0.0.1`, port `5000`, and connect to AI model at `localhost:8000` with verbose logging:
 
 ```bash
-node server.js --bindip 127.0.0.1 --bindport 5000 --aihost localhost --aihostport 8000 --verbose
+./llmw --bindip 127.0.0.1 --bindport 42069 --aihost 10.0.0.1 --aihostport 443 --verbose
 ```
 
 ## API Documentation
@@ -138,7 +99,7 @@ node server.js --bindip 127.0.0.1 --bindport 5000 --aihost localhost --aihostpor
    
    Example request using `curl`:
    ```bash
-   curl -X POST http://localhost:3000/v1/chat/completions \
+   curl -X POST http://localhost:42069/v1/chat/completions \
    -H "Content-Type: application/json" \
    -d '{
      "model": "TheBloke/Mistral-7B-Instruct-v0.2-AWQ",
@@ -152,7 +113,7 @@ node server.js --bindip 127.0.0.1 --bindport 5000 --aihost localhost --aihostpor
 
 ## Scalability
 
-The server uses Node.js **clustering** to distribute requests across multiple CPU cores. By default, it forks workers equal to the number of available CPU cores.
+The server uses **clustering** to distribute requests across multiple CPU cores. By default, it forks workers equal to the number of available CPU cores.
 
 If you need to change this behavior, you can modify the clustering logic in the code.
 
