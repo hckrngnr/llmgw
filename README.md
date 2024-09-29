@@ -5,7 +5,7 @@
 
 ## Overview
 
-The **Large Language Model Gateway (LLMGW)** is a API server designed to interface with AI models for chat completions. This API provides endpoints to interact with AI models, manage prompts, and retrieve completions, with built-in rate limiting, security, and clustering for scalability.
+The **Large Language Model Gateway (LLMGW)** is a API middleware designed to interface with AI models for chat completions. This API provides endpoints to interact with AI models, manage prompts, and retrieve completions, with built-in rate limiting, security, and clustering for scalability.
 
 ## Features
 
